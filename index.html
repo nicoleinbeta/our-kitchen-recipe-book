@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183b35">
+  <meta name="description" content="A private, offline recipe book for two: favourites, servings, nutrition and accompaniments.">
+  <title>Our Kitchen | Recipe Book</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home" aria-label="Our Kitchen home"><span class="brand-icon">✳</span><span>our kitchen<span class="brand-dot">.</span></span></a>
+      <span class="header-caption">Nicole & Tom's recipe collection</span>
+      <button class="quiet-action" id="exportButton" title="Export your ratings and recipe collection as JSON">Export data <span aria-hidden="true">↗</span></button>
+    </div>
+  </header>
+
+  <main class="wrap" id="home">
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span> THE RECIPE BOOK</div>
+        <h1>Food worth <em>making again.</em></h1>
+        <p>Our tried-and-tested favourites, the dishes worth improving and a few new ideas. Designed for real weeknights and different appetites.</p>
+        <div class="hero-meta"><span id="recipeCount">Loading recipes</span><span class="bullet">·</span><span id="fiveStarCount"></span><span class="bullet">·</span><span>Offline & private</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><span class="hero-art-big">✺</span><span class="hero-art-small">✺</span><div class="hero-art-label">GOOD FOOD<br>GOOD COMPANY</div></div>
+    </section>
+
+    <section class="library-section" aria-label="Recipe library">
+      <div class="section-heading"><div><div class="eyebrow dark">BROWSE & COOK</div><h2>Find something good.</h2></div><span class="subtle" id="resultCount"></span></div>
+      <div class="toolbar">
+        <label class="search-wrap" for="searchInput"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.9" cy="10.9" r="6.7"/><path d="m16 16 5 5"/></svg><input id="searchInput" type="search" placeholder="Search dishes, cuisines or ingredients…" autocomplete="off"></label>
+        <select id="typeFilter" aria-label="Meal type"><option value="all">All meal types</option><option value="Main">Main dishes</option><option value="Soup">Soups</option><option value="Breakfast">Breakfast</option><option value="Dessert">Desserts</option></select>
+        <select id="sortFilter" aria-label="Sort recipes"><option value="rating">Top rated</option><option value="az">A to Z</option><option value="quick">Quickest first</option></select>
+      </div>
+      <nav id="filterTabs" class="filter-tabs" aria-label="Recipe filters"><button class="filter-btn active" data-filter="all" aria-pressed="true">All recipes</button><button class="filter-btn" data-filter="favourite" aria-pressed="false">★ Favourites</button><button class="filter-btn" data-filter="rotation" aria-pressed="false">Regular rotation</button><button class="filter-btn" data-filter="improve" aria-pressed="false">Could improve</button><button class="filter-btn" data-filter="unrated" aria-pressed="false">Unrated</button></nav>
+      <div class="recipe-grid" id="recipeGrid" aria-live="polite"></div>
+      <div class="empty-state" id="emptyState" hidden><span>🍽️</span><h3>No matching recipes</h3><p>Try a different search or filter.</p><button class="primary small" id="resetFilters">Reset filters</button></div>
+    </section>
+    <aside class="bottom-note"><strong>A note on accuracy.</strong> Nutrition figures are indicative estimates from generic ingredient values, not verified product labels. Original ingredient quantities are preserved, and the per-serving values do not change when you scale the batch. Seven earlier favourites still need their full original instructions recovered.</aside>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="recipe-panel" role="dialog" aria-modal="true" aria-labelledby="detailTitle" id="recipePanel">
+      <button class="close-btn" id="closeDetail" aria-label="Close recipe">✕</button>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <footer class="wrap footer"><span>✳ our kitchen.</span><span>Plain HTML · CSS · JavaScript · No external services</span></footer>
+  <script src="recipes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
