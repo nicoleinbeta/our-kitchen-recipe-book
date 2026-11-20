@@ -27,7 +27,7 @@ Changes to the committed recipe source on `main` will publish automatically afte
 
 ## Search and filtering
 
-Use the **Main protein** and **Cuisine region** dropdowns to filter recipes. The dropdowns can be combined with meal type, favourites and keyword search. Keyword search also matches specific cuisine names and ingredients. Use **Reset filters** to return to the full collection.
+Use the **Main protein** and **Cuisine region** dropdowns to filter recipes. Options are provided in the HTML and refreshed from the data when JavaScript starts. The dropdowns can be combined with meal type, favourites and keyword search. Keyword search also matches specific cuisine names and ingredients. Use **Reset filters** to return to the full collection.
 
 Recipe cards and detail pages intentionally omit conversational feedback, revision notes and source filenames. Ratings and practical ingredient/accompaniment guidance remain.
 
@@ -40,7 +40,7 @@ Recipe cards and detail pages intentionally omit conversational feedback, revisi
 - Seven earlier recipes are summary-only because complete original ingredient amounts/instructions could not be verified. They are clearly marked and have no invented nutrition facts.
 - Serving-size controls for complete savoury recipes (2, 4 or 6); full-sized pies are kept at their original eight-slice tin yield.
 - Per-serving estimated calories, protein, carbohydrates, fat and fibre where quantities were available.
-- Optional accompaniments, with separately calculated extra calories and macros.
+- Optional accompaniments update all five per-serving nutrition boxes immediately. The nutritional summary beneath the tick boxes also shows the combined meal and extras.
 - Editable joint ratings. Rating a recipe 1 or 2 removes it from the visible collection in that browser.
 - Print/copy recipes and export the current recipe data and rating overrides as JSON.
 

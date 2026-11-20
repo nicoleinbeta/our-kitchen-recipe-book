@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#183b35">
   <meta name="description" content="A recipe book with protein and cuisine filters, serving sizes, nutrition and accompaniments.">
   <title>Our Kitchen | Recipe Book</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261120-3">
 </head>
 <body>
   <header class="site-header">
@@ -32,8 +32,8 @@
       <div class="section-heading"><div><div class="eyebrow dark">BROWSE & COOK</div><h2>Find something good.</h2></div><span class="subtle" id="resultCount"></span></div>
       <div class="toolbar">
         <label class="search-wrap" for="searchInput"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.9" cy="10.9" r="6.7"/><path d="m16 16 5 5"/></svg><input id="searchInput" type="search" placeholder="Search dishes, cuisines or ingredients…" autocomplete="off"></label>
-        <select id="proteinFilter" aria-label="Main protein"><option value="all">All proteins</option></select>
-        <select id="regionFilter" aria-label="Cuisine region"><option value="all">All cuisine regions</option></select>
+        <select id="proteinFilter" aria-label="Main protein"><option value="all">All proteins</option><option value="Beef">Beef</option><option value="Chicken">Chicken</option><option value="Eggs">Eggs</option><option value="Fish">Fish</option><option value="Lamb">Lamb</option><option value="No main protein">No main protein</option><option value="Pork / sausage">Pork / sausage</option><option value="Turkey">Turkey</option></select>
+        <select id="regionFilter" aria-label="Cuisine region"><option value="all">All cuisine regions</option><option value="East &amp; Southeast Asia">East &amp; Southeast Asia</option><option value="Everyday / mixed">Everyday / mixed</option><option value="Mediterranean &amp; Southern Europe">Mediterranean &amp; Southern Europe</option><option value="North Africa">North Africa</option><option value="North America">North America</option><option value="Northern Europe">Northern Europe</option><option value="South Asia">South Asia</option></select>
         <select id="typeFilter" aria-label="Meal type"><option value="all">All meal types</option><option value="Main">Main dishes</option><option value="Soup">Soups</option><option value="Breakfast">Breakfast</option><option value="Dessert">Desserts</option></select>
         <select id="sortFilter" aria-label="Sort recipes"><option value="rating">Top rated</option><option value="az">A to Z</option><option value="quick">Quickest first</option></select>
       </div>
@@ -52,7 +52,7 @@
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <footer class="wrap footer"><span>✳ our kitchen.</span><span>Plain HTML · CSS · JavaScript · No external services</span></footer>
-  <script src="recipes.js"></script>
-  <script src="app.js"></script>
+  <script src="recipes.js?v=20261120-3"></script>
+  <script src="app.js?v=20261120-3"></script>
 </body>
 </html>

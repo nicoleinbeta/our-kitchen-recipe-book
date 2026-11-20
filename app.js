@@ -83,6 +83,12 @@
     const vals=[['kcal','Calories','kcal'],['protein','Protein','g'],['carbs','Carbs','g'],['fat','Fat','g'],['fibre','Fibre','g']];
     return `<div class="nutrition-grid" aria-label="${esc(heading)}">${vals.map(([k,label,unit])=>`<div class="nutrient"><strong>${Math.round(n[k]*10)/10}${k==='kcal'?'':'g'}</strong><span>${label}</span></div>`).join('')}</div>`;
   }
+  function selectedNutrition(r) {
+    if(!r.nutrition) return null;
+    const result={...r.nutrition};
+    for(const key of state.extras){const n=EXTRAS[key].n;for(const field of Object.keys(result)) result[field]+=n[field]||0;}
+    return result;
+  }
   function nutrientWithExtras(r) {
     if(!r.nutrition) return `<div class="info-box"><strong>Nutrition not available yet</strong>The earlier recipe's original ingredient quantities need to be recovered before we can calculate meaningful per-serving values.</div>`;
     const result={...r.nutrition};
@@ -109,9 +115,10 @@
       </section>
       <section class="detail-section"><h3>Method</h3>${steps}</section>
 
-      <section class="detail-section"><h3>Nutrition per serving</h3>${r.nutrition?nutrientTable(r.nutrition,'Estimated base nutrition'):`<div class="info-box">Nutrition needs the original recipe quantities. We'll calculate it when those have been restored.</div>`}<p class="mini-note">Indicative only. Calculated from typical raw ingredient values and assumed edible weights; brands, oil use and cooking losses change the result. UK carbohydrates are shown separately from fibre. Optional toppings below are not included in the base figure.</p></section>
+      <section class="detail-section"><h3>Nutrition per serving</h3><div id="nutritionGrid">${r.nutrition?nutrientTable(selectedNutrition(r),'Estimated per-serving nutrition'):`<div class="info-box">Nutrition needs the original recipe quantities. We'll calculate it when those have been restored.</div>`}</div><p class="mini-note">Indicative only. Calculated from typical raw ingredient values and assumed edible weights; brands, oil use and cooking losses change the result. UK carbohydrates are shown separately from fibre. Ticking an accompaniment below updates the five nutrition boxes above. The base recipe is unchanged.</p></section>
       ${r.extras.length?`<section class="detail-section"><h3>Make it your own</h3><p class="mini-note">Extra additions, usually for Tom's higher-fat keto plate. Tick to see their additional nutrition per serving. These are <strong>extra</strong> portions on top of the base recipe.</p><div class="extra-list">${r.extras.map(k=>`<label class="extra-row"><input type="checkbox" data-extra="${k}" ${state.extras.includes(k)?'checked':''}><span class="extra-name">${esc(EXTRAS[k].label)}</span><small>+${EXTRAS[k].n.kcal} kcal</small></label>`).join('')}</div><div id="extraTotals">${nutrientWithExtras(r)}</div></section>`:''}
 
+      `;
     $('ratingEdit').addEventListener('change',e=>{
       const val=e.target.value;storedRatings[r.id]=val===''?null:Number(val);
       try {localStorage.setItem(RATING_KEY,JSON.stringify(storedRatings));} catch (_) {showToast('Browser storage unavailable. Export your data to keep changes.');}
@@ -122,6 +129,7 @@
     document.querySelectorAll('[data-extra]').forEach(el=>el.addEventListener('change',()=>{
       if(el.checked)state.extras.push(el.dataset.extra);else state.extras=state.extras.filter(k=>k!==el.dataset.extra);
       $('extraTotals').innerHTML=nutrientWithExtras(r);
+      if(r.nutrition) $('nutritionGrid').innerHTML=nutrientTable(selectedNutrition(r),'Nutrition including selected accompaniments');
     }));
     $('printBtn').addEventListener('click',()=>window.print());
     $('copyBtn').addEventListener('click',()=>{
