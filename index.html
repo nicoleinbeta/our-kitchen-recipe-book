@@ -6,7 +6,8 @@
   <meta name="theme-color" content="#183b35">
   <meta name="description" content="A recipe book with protein and cuisine filters, serving sizes, nutrition and accompaniments.">
   <title>Our Kitchen | Recipe Book</title>
-  <link rel="stylesheet" href="styles.css?v=20261120-3">
+  <link rel="stylesheet" href="styles.css?v=20261120-4">
+  <link rel="stylesheet" href="planner.css?v=20261120-4">
 </head>
 <body>
   <header class="site-header">
@@ -22,7 +23,7 @@
       <div>
         <div class="eyebrow"><span class="eyebrow-dot"></span> THE RECIPE BOOK</div>
         <h1>Food worth <em>making again.</em></h1>
-        <p>Our tried-and-tested favourites, the dishes worth improving and a few new ideas. Designed for real weeknights and different appetites.</p>
+        <p>Our tried-and-tested favourites, the dishes worth improving and a few new ideas. Designed for real weeknights and different appetites.</p><a class="hero-planner-link" href="#plannerSection">Plan meals & build a shopping list →</a>
         <div class="hero-meta"><span id="recipeCount">Loading recipes</span><span class="bullet">·</span><span id="fiveStarCount"></span><span class="bullet">·</span><span>Simple & shareable</span></div>
       </div>
       <div class="hero-art" aria-hidden="true"><span class="hero-art-big">✺</span><span class="hero-art-small">✺</span><div class="hero-art-label">GOOD FOOD<br>GOOD COMPANY</div></div>
@@ -41,6 +42,41 @@
       <div class="recipe-grid" id="recipeGrid" aria-live="polite"></div>
       <div class="empty-state" id="emptyState" hidden><span>🍽️</span><h3>No matching recipes</h3><p>Try a different search or filter.</p><button class="primary small" id="resetFilters">Reset filters</button></div>
     </section>
+
+    <section class="planner-section" id="plannerSection" aria-labelledby="plannerTitle">
+      <div class="section-heading"><div><div class="eyebrow dark">PLAN & SHOP</div><h2 id="plannerTitle">Plan a few meals. Shop once.</h2></div></div>
+      <p class="planner-intro">Choose recipes and portion sizes, then get a combined shopping list. We'll suggest meals that reuse fresh ingredients while keeping your week varied.</p>
+      <div class="planner-layout">
+        <div class="planner-main">
+          <div class="planner-card">
+            <div class="planner-card-header"><h3>Add a recipe</h3></div>
+            <div class="planner-add-controls">
+              <label class="planner-field planner-pick"><span>Recipe</span><select id="plannerRecipe" aria-label="Choose recipe"><option value="">Choose a recipe…</option></select></label>
+              <label class="planner-field"><span>Day</span><select id="plannerDay"><option>Flexible</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></label>
+              <label class="planner-field"><span>Serves</span><select id="plannerServings"><option>2</option><option>4</option><option>6</option></select></label>
+              <button class="plan-action" type="button" id="plannerAdd">Add meal +</button>
+            </div>
+            <p class="planner-muted planner-detail">Eleven savoury recipes have complete ingredients for shopping calculations. Seven older favourites will become plannable once their original quantities are recovered.</p>
+            <div class="planner-card-header planner-divider"><h3>Your planned meals</h3><span id="plannerSummary">0 dishes</span><button class="plan-text-button" id="clearPlan" type="button">Clear plan</button></div>
+            <div id="plannedMeals" aria-live="polite"></div>
+          </div>
+          <div class="planner-card">
+            <div class="planner-card-header"><h3>Shopping list</h3><span id="shoppingSummary">0 combined ingredients</span><button id="copyShopping" class="plan-action" type="button">Copy list</button></div>
+            <p class="planner-muted">Matching ingredients are combined across meals. Tick what you already have. Checked items are excluded from the copied list. Quantities are scaled to your chosen portions.</p>
+            <div id="sharedIngredients" class="shared-ingredients">Matching ingredients will appear here.</div>
+            <div id="shoppingList" aria-live="polite"></div>
+            <p class="planner-muted planner-smallprint">Quantities are indicative, especially for ranges, loose herbs, or recipe alternatives. Optional toppings and accompaniments are not automatically added. This doesn't connect to Ocado.</p>
+          </div>
+        </div>
+        <aside class="planner-card planner-aside" aria-labelledby="suggestionsTitle">
+          <div class="eyebrow dark">USE WHAT YOU BUY</div>
+          <h3 id="suggestionsTitle">Smart recipe matches</h3>
+          <p class="planner-muted">Based on shared fresh ingredients, your ratings and protein variety. These are simple rules, not AI.</p>
+          <div id="smartSuggestions" aria-live="polite"></div>
+        </aside>
+      </div>
+      <p id="plannerStatus" role="status" aria-live="polite" class="planner-status"></p>
+    </section>
     <aside class="bottom-note"><strong>A note on accuracy.</strong> Nutrition figures are indicative estimates from generic ingredient values, not verified product labels. Original ingredient quantities are preserved, and the per-serving values do not change when you scale the batch. Seven earlier favourites still need their full original instructions recovered.</aside>
   </main>
 
@@ -52,7 +88,8 @@
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <footer class="wrap footer"><span>✳ our kitchen.</span><span>Plain HTML · CSS · JavaScript · No external services</span></footer>
-  <script src="recipes.js?v=20261120-3"></script>
-  <script src="app.js?v=20261120-3"></script>
+  <script src="recipes.js?v=20261120-4"></script>
+  <script src="app.js?v=20261120-4"></script>
+  <script src="planner.js?v=20261120-4"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ A simple static recipe book using only HTML, CSS and vanilla JavaScript. It work
 ## Open it
 
 1. Clone or download this GitHub repository.
-2. Open `index.html` in a browser on your Mac or PC. Keep `index.html`, `styles.css`, `app.js` and `recipes.js` together in the same folder.
+2. Open `index.html` in a browser on your Mac or PC. Keep `index.html`, `styles.css`, `planner.css`, `app.js`, `planner.js` and `recipes.js` together in the same folder.
 3. Search recipes, filter by favourites, open a recipe and switch between 2, 4 and 6 servings.
 
 **Important:** This is a static website. It does not sync between devices or with your ChatGPT Library automatically. If you later host the folder as a site, recipes remain bundled in `recipes.js`. Individual rating changes save only in the current browser's `localStorage`, where supported. Use **Export data** to make a backup before switching browsers or devices.
@@ -30,6 +30,17 @@ Changes to the committed recipe source on `main` will publish automatically afte
 Use the **Main protein** and **Cuisine region** dropdowns to filter recipes. Options are provided in the HTML and refreshed from the data when JavaScript starts. The dropdowns can be combined with meal type, favourites and keyword search. Keyword search also matches specific cuisine names and ingredients. Use **Reset filters** to return to the full collection.
 
 Recipe cards and detail pages intentionally omit conversational feedback, revision notes and source filenames. Ratings and practical ingredient/accompaniment guidance remain.
+
+
+## Meal planner and shopping list
+
+The **Plan & shop** section is a local, offline-capable first iteration. Pick a complete recipe, choose a day (or Flexible) and select 2, 4 or 6 portions. Add as many meals as required. You can also select **Add to meal plan** from a complete recipe page.
+
+The **Shopping list** merges recognisable ingredients across selected recipes, scales quantities and groups items by food category. Check off ingredients you already have, then use **Copy list** to copy only unchecked items to your clipboard (or download a text file if copying is unavailable).
+
+The **Smart recipe matches** panel uses simple ingredient overlap, ratings and protein variety to suggest other dishes that share fresh ingredients. It is not an AI integration.
+
+**Limitations:** Only 11 savoury recipes currently have complete ingredient amounts. The seven older summary-only favourites are not automatically plannable. Ingredient matching and quantity scaling are heuristics, not a verified shopping database. Ranges and unquantified items are shown as approximations; optional accompaniments are not automatically included; standard supermarket pack sizes and Ocado baskets are not yet integrated. Planning and tick-boxes are saved in the current browser's localStorage, so they do **not sync between Tom's phone and yours**. The app has no backend or API key.
 
 ## What is included
 

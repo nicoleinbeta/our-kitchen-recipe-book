@@ -109,7 +109,7 @@
     $('detailContent').innerHTML=`
       <header class="detail-header"><div class="eyebrow dark">${esc(r.cuisine)} · ${esc(r.type)}${r.type!=="Dessert"?" · "+esc(r.protein):""}</div><h2 id="detailTitle">${esc(r.emoji)} ${esc(r.title)}</h2><div class="detail-byline"><span class="rating ${ratingFor(r)==null?'unrated':''}">${esc(ratingText(r))}</span><span>◷ ${r.minutes} minutes</span><span>· ${full?'Complete recipe':'Overview only'}</span></div>
       <div class="rating-update"><label for="ratingEdit">Joint rating:</label><select id="ratingEdit" aria-label="Edit joint rating">${ratingOptions}</select><span class="mini-note">1 or 2 stars hides this dish from the book.</span></div>
-      <div class="detail-actions"><button class="button dark" id="printBtn">Print recipe</button><button class="button" id="copyBtn">Copy recipe</button></div></header>
+      <div class="detail-actions">${full && r.type!=="Dessert"?'<button class="button dark" id="addPlanBtn">Add to meal plan</button>':''}<button class="button" id="printBtn">Print recipe</button><button class="button" id="copyBtn">Copy recipe</button></div></header>
       <section class="detail-section"><div class="section-minihead"><h3>Ingredients</h3>${fixed?'<span class="fixed-label">One 23cm pie · 8 slices</span>':(full?`<div class="serve-control" aria-label="Serving size">${[2,4,6].map(n=>`<button type="button" class="${state.servings===n?'active':''}" data-serving="${n}" aria-pressed="${state.servings===n}">${n}</button>`).join('')}</div>`:'<span class="fixed-label">Amounts to verify</span>')}</div>
       ${contents}${full&&!fixed?`<p class="servings-info">Scaled from the original ${r.baseServings}-serving recipe. Cooking times, oven temperatures, tin sizes and ingredient cuts do not scale automatically. Adjust equipment as needed.</p>`:''}
       </section>
@@ -122,6 +122,7 @@
     $('ratingEdit').addEventListener('change',e=>{
       const val=e.target.value;storedRatings[r.id]=val===''?null:Number(val);
       try {localStorage.setItem(RATING_KEY,JSON.stringify(storedRatings));} catch (_) {showToast('Browser storage unavailable. Export your data to keep changes.');}
+      document.dispatchEvent(new Event('ourKitchen:ratingsChanged'));
       if(val!=='' && Number(val)<=2){closeDetail();showToast('Recipe hidden from the book because its rating is 1 or 2.');renderGrid();return;}
       renderGrid();detail();showToast('Joint rating updated on this device.');
     });
@@ -131,6 +132,11 @@
       $('extraTotals').innerHTML=nutrientWithExtras(r);
       if(r.nutrition) $('nutritionGrid').innerHTML=nutrientTable(selectedNutrition(r),'Nutrition including selected accompaniments');
     }));
+    const planButton=$('addPlanBtn');
+    if(full && r.type!=='Dessert' && planButton) planButton.addEventListener('click',()=>{
+      document.dispatchEvent(new CustomEvent('ourKitchen:addRecipe',{detail:{id:r.id,servings:state.servings}}));
+      closeDetail();
+    });
     $('printBtn').addEventListener('click',()=>window.print());
     $('copyBtn').addEventListener('click',()=>{
       const ingredients=r.ingredients.length?r.ingredients.map(v=>'• '+(fixed?v:scaleLine(v,f))).join('\n'):'Full ingredients not yet recovered';

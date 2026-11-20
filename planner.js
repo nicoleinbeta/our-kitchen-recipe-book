@@ -26,6 +26,7 @@
     [/pak choi/i,'pak-choi','Pak choi','Fresh vegetables & herbs'],
     [/tenderstem broccoli/i,'broccoli','Tenderstem broccoli','Fresh vegetables & herbs'],
     [/aubergines?/i,'aubergine','Aubergine','Fresh vegetables & herbs'],
+    [/\bblack pepper\b|\bsalt\b/i,'salt-pepper','Salt & pepper','Herbs & spices'],
     [/\bpeppers?\b/i,'peppers','Peppers','Fresh vegetables & herbs'],
     [/romaine lettuce/i,'lettuce','Romaine lettuce','Fresh vegetables & herbs'],
     [/watercress|salad leaves/i,'salad-leaves','Salad leaves','Fresh vegetables & herbs'],
@@ -106,7 +107,8 @@
     const a=fmt(x.min),b=fmt(x.max);
     const u=x.unit==='items'?'':x.unit==='g'?' g':x.unit==='ml'?' ml':' '+x.unit;
     let result=a+(Math.abs(x.max-x.min)>0.001?'–'+b:'')+u;
-    if(x.key==='tinned-tomatoes'&&x.unit==='g'&&x.min===x.max&&x.min%400===0)result+=' ('+(x.min/400)+' × 400 g tins)';
+    if(x.key==='tinned-tomatoes'&&x.unit==='g'&&x.min===x.max)result+=' (buy '+Math.ceil(x.min/400)+' × 400 g tins)';
+    if(x.unit==='items'&&x.min===x.max&&x.min!==Math.ceil(x.min))result+=' (buy '+Math.ceil(x.min)+')';
     return result;
   }
   function shopping(){

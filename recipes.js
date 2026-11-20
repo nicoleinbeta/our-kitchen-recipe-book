@@ -54,8 +54,11 @@ const RECIPE_DATA = [
     "steps": [],
     "outline": "Potatoes, leeks, bacon lardons, Granny Smith apple, cream and chives.",
     "nutrition": null,
-    "protein": "Pork / sausage",
-    "region": "Northern Europe"
+    "protein": "Pork",
+    "region": "Northern Europe",
+    "tags": [
+      "bacon"
+    ]
   },
   {
     "id": "R04",
@@ -93,8 +96,11 @@ const RECIPE_DATA = [
     "steps": [],
     "outline": "Italian sausage, green lentils, mirepoix and tomatoes.",
     "nutrition": null,
-    "protein": "Pork / sausage",
-    "region": "Mediterranean & Southern Europe"
+    "protein": "Pork",
+    "region": "Mediterranean & Southern Europe",
+    "tags": [
+      "sausage"
+    ]
   },
   {
     "id": "R06",
@@ -132,8 +138,11 @@ const RECIPE_DATA = [
     "steps": [],
     "outline": "Cumberland sausages, fennel seeds, spinach and a moderate amount of cream.",
     "nutrition": null,
-    "protein": "Pork / sausage",
-    "region": "Mediterranean & Southern Europe"
+    "protein": "Pork",
+    "region": "Mediterranean & Southern Europe",
+    "tags": [
+      "sausage"
+    ]
   },
   {
     "id": "R11",
