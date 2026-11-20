@@ -1,6 +1,6 @@
 # Our Kitchen: interactive recipe book
 
-A simple offline recipe book using only HTML, CSS and vanilla JavaScript. No framework, hosting, subscription, API key or database is required.
+A simple static recipe book using only HTML, CSS and vanilla JavaScript. It works offline and can also be hosted without a framework, API key or database.
 
 ## Open it
 
@@ -8,7 +8,22 @@ A simple offline recipe book using only HTML, CSS and vanilla JavaScript. No fra
 2. Open `index.html` in a browser on your Mac or PC. Keep `index.html`, `styles.css`, `app.js` and `recipes.js` together in the same folder.
 3. Search recipes, filter by favourites, open a recipe and switch between 2, 4 and 6 servings.
 
-**Important:** This is a local static website. It does not sync between devices or with your ChatGPT Library automatically. If you later host the folder as a site, recipes remain bundled in `recipes.js`. Individual rating changes save only in the current browser's `localStorage`, where supported. Use **Export data** to make a backup before switching browsers or devices.
+**Important:** This is a static website. It does not sync between devices or with your ChatGPT Library automatically. If you later host the folder as a site, recipes remain bundled in `recipes.js`. Individual rating changes save only in the current browser's `localStorage`, where supported. Use **Export data** to make a backup before switching browsers or devices.
+
+## Publish on GitHub Pages
+
+The files are already ready for branch-based publishing: `index.html`, `styles.css`, `app.js` and `recipes.js` are all at the root of `main`. No build step or GitHub Actions workflow is required.
+
+To enable GitHub Pages from an authenticated browser:
+
+1. Open `https://github.com/nicoleinbeta/our-kitchen-recipe-book/settings/pages`.
+2. Under **Build and deployment**, select **Deploy from a branch** as the source.
+3. Choose branch **main** and folder **/(root)**, then **Save**.
+4. Once GitHub reports the deployment as successful, the expected URL is `https://nicoleinbeta.github.io/our-kitchen-recipe-book/`.
+
+**Eligibility and privacy:** GitHub Pages on a **private repository** requires a GitHub Pro or qualifying paid plan; on GitHub Free, the repository must be made public to enable Pages. The published Pages website is **publicly accessible even when the repository is private**. Do not include personal secrets in the deployed files.
+
+Changes to the committed recipe source on `main` will publish automatically after Pages has been enabled. Rating overrides remain local to each device/browser, not in GitHub.
 
 ## What is included
 
