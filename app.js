@@ -6,7 +6,7 @@
   const RATING_KEY = 'ourKitchenRatings_v1';
   let storedRatings = {};
   try { storedRatings = JSON.parse(localStorage.getItem(RATING_KEY) || '{}') || {}; } catch (_) {}
-  let state = { tab:'all', type:'all', query:'', sort:'rating', opened:null, servings:2, extras:[] };
+  let state = { tab:'all', type:'all', protein:'all', region:'all', query:'', sort:'rating', opened:null, servings:2, extras:[] };
   const EXTRAS = {
     avocado:{ label:'½ avocado (70g)', n:{kcal:112,protein:1.4,carbs:1.3,fat:10.5,fibre:4.7} },
     feta:{ label:'Feta (30g)', n:{kcal:80,protein:4.2,carbs:1.2,fat:6.3,fibre:0} },
@@ -25,7 +25,9 @@
     let arr=allValid().filter(r => {
       if(state.tab!=='all' && groupFor(r)!==state.tab) return false;
       if(state.type!=='all' && r.type!==state.type) return false;
-      const haystack=[r.title,r.cuisine,r.type,r.note,r.outline||'',...r.ingredients].join(' ').toLowerCase();
+      if(state.protein!=='all' && r.protein!==state.protein) return false;
+      if(state.region!=='all' && r.region!==state.region) return false;
+      const haystack=[r.title,r.cuisine,r.region,r.protein,r.type,r.outline||'',...r.ingredients].join(' ').toLowerCase();
       return !state.query || haystack.includes(state.query);
     });
     arr.sort((a,b) => state.sort==='az'?a.title.localeCompare(b.title):state.sort==='quick'?a.minutes-b.minutes:(ratingFor(b)??-1)-(ratingFor(a)??-1)||a.title.localeCompare(b.title));
@@ -36,7 +38,7 @@
     const detailed=!!r.steps.length;
     return `<button class="recipe-card" data-id="${esc(r.id)}" aria-label="Open ${esc(r.title)}">
       <div class="card-top"><span class="dish-art ${esc(r.type)}">${esc(r.emoji)}</span><span class="rating ${ratingFor(r)==null?'unrated':''}">${esc(ratingText(r))}</span></div>
-      <div class="card-body"><div class="card-meta">${esc(r.cuisine)} · ${esc(r.type)}</div><h3>${esc(r.title)}</h3><div class="card-note">${esc(r.note)}</div></div>
+      <div class="card-body"><div class="card-meta">${esc(r.cuisine)} · ${esc(r.type)}${r.type!=="Dessert"?" · "+esc(r.protein):""}</div><h3>${esc(r.title)}</h3></div>
       <div class="card-bottom"><span class="card-time">◷ ${r.minutes} min <span class="card-full"> · ${detailed?'Full recipe':'Summary only'}</span></span><span class="card-cta">View recipe →</span></div>
     </button>`;
   }
@@ -96,20 +98,20 @@
       `<ul class="ing-list">${r.ingredients.map((line,i)=>`<li><label><input type="checkbox" aria-label="Tick ingredient ${i+1}"><span>${esc(fixed?line:scaleLine(line,f))}</span></label></li>`).join('')}</ul>`:
       `<div class="missing-steps">${esc(r.outline||'Original ingredients not recovered.')}</div>`;
     const steps=full?`<ol class="steps">${r.steps.map(s=>`<li><span>${esc(s)}</span></li>`).join('')}</ol>`:
-      `<div class="info-box"><strong>Full recipe needs recovering</strong>We have your rating and ingredients overview, but the precise method and quantities weren't available in the saved recipe files. No instructions have been invented.</div>`;
+      `<div class="info-box"><strong>Full recipe needs recovering</strong>The precise method and quantities have not yet been added for this recipe.</div>`;
     const ratingOptions=['','1','1.5','2','2.5','3','3.5','4','4.5','5'].map(s=>`<option value="${s}" ${(ratingFor(r)??'').toString()===s?'selected':''}>${s?s+'/5':'Unrated'}</option>`).join('');
     $('detailContent').innerHTML=`
-      <header class="detail-header"><div class="eyebrow dark">${esc(r.cuisine)} · ${esc(r.type)}</div><h2 id="detailTitle">${esc(r.emoji)} ${esc(r.title)}</h2><div class="detail-byline"><span class="rating ${ratingFor(r)==null?'unrated':''}">${esc(ratingText(r))}</span><span>◷ ${r.minutes} minutes</span><span>· ${full?'Complete recipe':'Overview only'}</span></div><p class="detail-note">${esc(r.note)}</p>
+      <header class="detail-header"><div class="eyebrow dark">${esc(r.cuisine)} · ${esc(r.type)}${r.type!=="Dessert"?" · "+esc(r.protein):""}</div><h2 id="detailTitle">${esc(r.emoji)} ${esc(r.title)}</h2><div class="detail-byline"><span class="rating ${ratingFor(r)==null?'unrated':''}">${esc(ratingText(r))}</span><span>◷ ${r.minutes} minutes</span><span>· ${full?'Complete recipe':'Overview only'}</span></div>
       <div class="rating-update"><label for="ratingEdit">Joint rating:</label><select id="ratingEdit" aria-label="Edit joint rating">${ratingOptions}</select><span class="mini-note">1 or 2 stars hides this dish from the book.</span></div>
       <div class="detail-actions"><button class="button dark" id="printBtn">Print recipe</button><button class="button" id="copyBtn">Copy recipe</button></div></header>
       <section class="detail-section"><div class="section-minihead"><h3>Ingredients</h3>${fixed?'<span class="fixed-label">One 23cm pie · 8 slices</span>':(full?`<div class="serve-control" aria-label="Serving size">${[2,4,6].map(n=>`<button type="button" class="${state.servings===n?'active':''}" data-serving="${n}" aria-pressed="${state.servings===n}">${n}</button>`).join('')}</div>`:'<span class="fixed-label">Amounts to verify</span>')}</div>
       ${contents}${full&&!fixed?`<p class="servings-info">Scaled from the original ${r.baseServings}-serving recipe. Cooking times, oven temperatures, tin sizes and ingredient cuts do not scale automatically. Adjust equipment as needed.</p>`:''}
       </section>
       <section class="detail-section"><h3>Method</h3>${steps}</section>
-      ${r.notes.length?`<section class="detail-section"><h3>Cooking notes</h3>${r.notes.map(n=>`<p class="detail-note">${esc(n)}</p>`).join('')}</section>`:''}
+
       <section class="detail-section"><h3>Nutrition per serving</h3>${r.nutrition?nutrientTable(r.nutrition,'Estimated base nutrition'):`<div class="info-box">Nutrition needs the original recipe quantities. We'll calculate it when those have been restored.</div>`}<p class="mini-note">Indicative only. Calculated from typical raw ingredient values and assumed edible weights; brands, oil use and cooking losses change the result. UK carbohydrates are shown separately from fibre. Optional toppings below are not included in the base figure.</p></section>
       ${r.extras.length?`<section class="detail-section"><h3>Make it your own</h3><p class="mini-note">Extra additions, usually for Tom's higher-fat keto plate. Tick to see their additional nutrition per serving. These are <strong>extra</strong> portions on top of the base recipe.</p><div class="extra-list">${r.extras.map(k=>`<label class="extra-row"><input type="checkbox" data-extra="${k}" ${state.extras.includes(k)?'checked':''}><span class="extra-name">${esc(EXTRAS[k].label)}</span><small>+${EXTRAS[k].n.kcal} kcal</small></label>`).join('')}</div><div id="extraTotals">${nutrientWithExtras(r)}</div></section>`:''}
-      <section class="detail-section"><p class="source-line">Source: ${esc(r.source)}. Changes to joint ratings are stored on this browser only. Export your data for backup.</p></section>`;
+
     $('ratingEdit').addEventListener('change',e=>{
       const val=e.target.value;storedRatings[r.id]=val===''?null:Number(val);
       try {localStorage.setItem(RATING_KEY,JSON.stringify(storedRatings));} catch (_) {showToast('Browser storage unavailable. Export your data to keep changes.');}
@@ -125,7 +127,7 @@
     $('copyBtn').addEventListener('click',()=>{
       const ingredients=r.ingredients.length?r.ingredients.map(v=>'• '+(fixed?v:scaleLine(v,f))).join('\n'):'Full ingredients not yet recovered';
       const method=r.steps.length?r.steps.map((s,i)=>`${i+1}. ${s}`).join('\n'):'Full method not yet recovered';
-      const info=`${r.title}\n${fixed?'One pie, 8 slices':state.servings+' servings'} | ${r.minutes} minutes | ${ratingText(r)}\n\nINGREDIENTS\n${ingredients}\n\nMETHOD\n${method}\n\nNOTES\n${r.notes.join('\n')}\n\nNutrition is an estimate only.`;
+      const info=`${r.title}\n${fixed?'One pie, 8 slices':state.servings+' servings'} | ${r.minutes} minutes | ${ratingText(r)}\n\nINGREDIENTS\n${ingredients}\n\nMETHOD\n${method}\n\nNutrition is an estimate only.`;
       if(navigator.clipboard?.writeText){navigator.clipboard.writeText(info).then(()=>showToast('Recipe copied.'),()=>fallbackCopy(info));}else fallbackCopy(info);
     });
   }
@@ -136,8 +138,16 @@
   $('closeDetail').addEventListener('click',closeDetail);
   $('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop'))closeDetail();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('modalBackdrop').hidden)closeDetail();});
+  function populateSelect(id,field,allLabel) {
+    const values=[...new Set(allValid().map(r=>r[field]).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+    $(id).innerHTML='<option value="all">'+esc(allLabel)+'</option>'+values.map(v=>'<option value="'+esc(v)+'">'+esc(v)+'</option>').join('');
+  }
+  populateSelect('proteinFilter','protein','All proteins');
+  populateSelect('regionFilter','region','All cuisine regions');
   $('searchInput').addEventListener('input',e=>{state.query=e.target.value.trim().toLowerCase();renderGrid();});
   $('typeFilter').addEventListener('change',e=>{state.type=e.target.value;renderGrid();});
+  $('proteinFilter').addEventListener('change',e=>{state.protein=e.target.value;renderGrid();});
+  $('regionFilter').addEventListener('change',e=>{state.region=e.target.value;renderGrid();});
   $('sortFilter').addEventListener('change',e=>{state.sort=e.target.value;renderGrid();});
   $('filterTabs').addEventListener('click',e=>{
     const btn=e.target.closest('[data-filter]');if(!btn)return;
@@ -146,8 +156,8 @@
     renderGrid();
   });
   $('resetFilters').addEventListener('click',()=>{
-    $('searchInput').value='';$('typeFilter').value='all';$('sortFilter').value='rating';
-    state.query='';state.type='all';state.sort='rating';
+    $('searchInput').value='';$('typeFilter').value='all';$('proteinFilter').value='all';$('regionFilter').value='all';$('sortFilter').value='rating';
+    state.query='';state.type='all';state.protein='all';state.region='all';state.sort='rating';
     document.querySelector('[data-filter="all"]').click();
   });
   $('exportButton').addEventListener('click',()=>{

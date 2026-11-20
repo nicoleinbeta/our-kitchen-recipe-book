@@ -7,8 +7,6 @@ const RECIPE_DATA = [
     "type": "Main",
     "baseServings": 2,
     "minutes": 25,
-    "source": "Sept recipe",
-    "note": "Favourite. Full original ingredient amounts not recovered.",
     "emoji": "🍳",
     "extras": [
       "avocado",
@@ -16,9 +14,10 @@ const RECIPE_DATA = [
     ],
     "ingredients": [],
     "steps": [],
-    "notes": [],
     "outline": "Chicken thighs, egg, rice, garlic, spring onions, soy and sesame.",
-    "nutrition": null
+    "nutrition": null,
+    "protein": "Chicken",
+    "region": "East & Southeast Asia"
   },
   {
     "id": "R02",
@@ -28,17 +27,16 @@ const RECIPE_DATA = [
     "type": "Main",
     "baseServings": 2,
     "minutes": 45,
-    "source": "Sept recipe",
-    "note": "Pasta dish; not low-carb. Full original ingredient amounts not recovered.",
     "emoji": "🍝",
     "extras": [
       "vegetables"
     ],
     "ingredients": [],
     "steps": [],
-    "notes": [],
     "outline": "Rigatoni, meatballs, tomato, basil and burrata.",
-    "nutrition": null
+    "nutrition": null,
+    "protein": "Beef",
+    "region": "Mediterranean & Southern Europe"
   },
   {
     "id": "R03",
@@ -48,17 +46,16 @@ const RECIPE_DATA = [
     "type": "Soup",
     "baseServings": 4,
     "minutes": 40,
-    "source": "Sept recipe",
-    "note": "More bacon lardons, Granny Smith apple and chives; no Dijon. Original quantities to be recovered.",
     "emoji": "🥣",
     "extras": [
       "vegetables"
     ],
     "ingredients": [],
     "steps": [],
-    "notes": [],
     "outline": "Potatoes, leeks, bacon lardons, Granny Smith apple, cream and chives.",
-    "nutrition": null
+    "nutrition": null,
+    "protein": "Pork / sausage",
+    "region": "Northern Europe"
   },
   {
     "id": "R04",
@@ -68,8 +65,6 @@ const RECIPE_DATA = [
     "type": "Soup",
     "baseServings": 4,
     "minutes": 45,
-    "source": "Sept–Oct recipe",
-    "note": "Cream and wild rice. A favourite; original quantities to be recovered.",
     "emoji": "🍲",
     "extras": [
       "butter",
@@ -77,9 +72,10 @@ const RECIPE_DATA = [
     ],
     "ingredients": [],
     "steps": [],
-    "notes": [],
     "outline": "Chicken thighs, mushrooms, wild rice, cream and stock.",
-    "nutrition": null
+    "nutrition": null,
+    "protein": "Chicken",
+    "region": "North America"
   },
   {
     "id": "R05",
@@ -89,17 +85,16 @@ const RECIPE_DATA = [
     "type": "Soup",
     "baseServings": 4,
     "minutes": 40,
-    "source": "Sept–Oct recipe",
-    "note": "Contains lentils; not keto. Original quantities to be recovered.",
     "emoji": "🥣",
     "extras": [
       "vegetables"
     ],
     "ingredients": [],
     "steps": [],
-    "notes": [],
     "outline": "Italian sausage, green lentils, mirepoix and tomatoes.",
-    "nutrition": null
+    "nutrition": null,
+    "protein": "Pork / sausage",
+    "region": "Mediterranean & Southern Europe"
   },
   {
     "id": "R06",
@@ -109,8 +104,6 @@ const RECIPE_DATA = [
     "type": "Soup",
     "baseServings": 4,
     "minutes": 35,
-    "source": "Oct recipe",
-    "note": "Replace pasta with courgette noodles; favourite. Original ingredient amounts to be recovered.",
     "emoji": "🍋",
     "extras": [
       "avocado",
@@ -118,9 +111,10 @@ const RECIPE_DATA = [
     ],
     "ingredients": [],
     "steps": [],
-    "notes": [],
     "outline": "Chicken, lemon, dill, thyme and courgette noodles in broth.",
-    "nutrition": null
+    "nutrition": null,
+    "protein": "Chicken",
+    "region": "Mediterranean & Southern Europe"
   },
   {
     "id": "R07",
@@ -130,17 +124,16 @@ const RECIPE_DATA = [
     "type": "Soup",
     "baseServings": 4,
     "minutes": 35,
-    "source": "Oct recipe",
-    "note": "Uses Cumberland sausages, fennel and spinach with moderate cream. Original quantities to be recovered.",
     "emoji": "🍲",
     "extras": [
       "vegetables"
     ],
     "ingredients": [],
     "steps": [],
-    "notes": [],
     "outline": "Cumberland sausages, fennel seeds, spinach and a moderate amount of cream.",
-    "nutrition": null
+    "nutrition": null,
+    "protein": "Pork / sausage",
+    "region": "Mediterranean & Southern Europe"
   },
   {
     "id": "R11",
@@ -150,8 +143,6 @@ const RECIPE_DATA = [
     "type": "Main",
     "baseServings": 3,
     "minutes": 30,
-    "source": "meal_plan_recipes_25_oct_2026.md",
-    "note": "Could use stronger seasoning; you considered adding onion.",
     "emoji": "🍳",
     "extras": [
       "feta",
@@ -177,19 +168,17 @@ const RECIPE_DATA = [
       "Heat a large frying pan over medium-high heat. Brown the beef mince, breaking it up with a spoon, until deeply coloured. Add a teaspoon of oil only if needed.",
       "Stir in the garlic, mushrooms and courgette. Cook for 5–7 minutes, allowing the mushrooms to brown and the courgette to soften.",
       "Add the tomatoes, smoked paprika, cumin, oregano, chilli flakes if using, salt and pepper. Simmer for 8–10 minutes, stirring occasionally, until the sauce has reduced and the vegetables are tender.",
-      "Stir in the spinach until wilted. Taste and adjust the seasoning, adding another squeeze of lemon or a splash of vinegar if the sauce needs brightness.",
-      "Divide into three portions: Tuesday dinner, Thursday lunch and Friday lunch."
-    ],
-    "notes": [
-      "Tom’s option: Add feta, grated cheese, Greek yoghurt or avocado to his portion. Leftovers: Refrigerate promptly. Freeze Friday’s portion if preferred, then defrost in the fridge Thursday night."
+      "Stir in the spinach until wilted. Taste and adjust the seasoning, adding another squeeze of lemon or a splash of vinegar if the sauce needs brightness."
     ],
     "nutrition": {
       "kcal": 327,
       "protein": 40.7,
       "carbs": 8.8,
       "fat": 12.2,
-      "fibre": 4.0
-    }
+      "fibre": 4
+    },
+    "protein": "Beef",
+    "region": "Mediterranean & Southern Europe"
   },
   {
     "id": "R12",
@@ -199,8 +188,6 @@ const RECIPE_DATA = [
     "type": "Main",
     "baseServings": 2,
     "minutes": 25,
-    "source": "meal_plan_recipes_25_oct_2026.md",
-    "note": "Fine, but not a favourite.",
     "emoji": "🥩",
     "extras": [
       "butter",
@@ -225,16 +212,15 @@ const RECIPE_DATA = [
       "In the same pan, cook the mushrooms with the garlic and rosemary for 5–7 minutes, scraping up the browned steak juices. Season with salt and pepper.",
       "Serve the steaks with the mushrooms and broccoli. Finish with lemon juice, pan juices and any optional toppings."
     ],
-    "notes": [
-      "Tom’s option: Add more butter, avocado or feta to his portion. Your option: Keep butter light and use lemon, rosemary, garlic and pan juices for flavour."
-    ],
     "nutrition": {
       "kcal": 432,
-      "protein": 45.0,
+      "protein": 45,
       "carbs": 6.7,
       "fat": 23.5,
       "fibre": 3.7
-    }
+    },
+    "protein": "Beef",
+    "region": "Northern Europe"
   },
   {
     "id": "R13",
@@ -244,8 +230,6 @@ const RECIPE_DATA = [
     "type": "Breakfast",
     "baseServings": 1,
     "minutes": 10,
-    "source": "meal_plan_recipes_25_oct_2026.md",
-    "note": "Favourite quick breakfast.",
     "emoji": "🍳",
     "extras": [
       "avocado",
@@ -267,14 +251,15 @@ const RECIPE_DATA = [
       "Scatter over the feta, fold the omelette and cook for another minute until set to your liking.",
       "Finish with black pepper and parsley or spring onion. Serve with avocado if available."
     ],
-    "notes": [],
     "nutrition": {
       "kcal": 266,
       "protein": 19.3,
       "carbs": 3.5,
       "fat": 18.8,
       "fibre": 2.1
-    }
+    },
+    "protein": "Eggs",
+    "region": "Everyday / mixed"
   },
   {
     "id": "R15",
@@ -284,8 +269,6 @@ const RECIPE_DATA = [
     "type": "Main",
     "baseServings": 3,
     "minutes": 25,
-    "source": "recipes_and_cooking_schedule_week_1_nov_2026.md",
-    "note": "Below average; included because rating is above 2.",
     "emoji": "🌶️",
     "extras": [
       "avocado",
@@ -317,19 +300,15 @@ const RECIPE_DATA = [
       "Stir in garlic and spice mixture for 1 minute, then add a splash of water and the lime juice; scrape the tasty browned bits from the pan. Season to taste.",
       "Serve hot over shredded lettuce with avocado, lime yoghurt, coriander and spring onions."
     ],
-    "notes": [
-      "Flavour trick: Brown the beef before adding vegetables and give the peppers some colour. Watery, crowded pans flatten the chipotle flavour.",
-      "Keto: No rice, beans or tortillas. Tom can add extra avocado, cheese or full-fat yoghurt; keep your portion lighter.",
-      "Storage: Keep cooked beef mix separate from lettuce, avocado and yoghurt. Refrigerate Tuesday's portion; freeze Thursday's portion on Monday once cooled. Add fresh lettuce and avocado when serving.",
-      "Lime yoghurt sauce: 120g Greek yoghurt + juice of ½–1 lime + salt, across 3 portions (included in indicative nutrition)."
-    ],
     "nutrition": {
       "kcal": 393,
       "protein": 36.2,
       "carbs": 16.7,
-      "fat": 18.0,
+      "fat": 18,
       "fibre": 7.7
-    }
+    },
+    "protein": "Beef",
+    "region": "North America"
   },
   {
     "id": "R16",
@@ -339,8 +318,6 @@ const RECIPE_DATA = [
     "type": "Main",
     "baseServings": 3,
     "minutes": 35,
-    "source": "meal_plan_and_recipes_week_22_nov_2026.md",
-    "note": "Repeat-worthy; brown meatballs well, reduce sauce.",
     "emoji": "🧆",
     "extras": [
       "feta",
@@ -370,18 +347,15 @@ const RECIPE_DATA = [
       "Add chopped tomatoes, harissa and a little water. Return meatballs; cover and simmer 12–15 minutes until cooked through (75°C internally).",
       "Stir in spinach and wilt. Taste and adjust harissa and salt. Serve with lemon yoghurt and parsley."
     ],
-    "notes": [
-      "Feta option: Crumble a little over Tom's portion if he wants extra richness. You do not need it here because the cod dish uses your existing feta.",
-      "Flavour tip: Brown the meatballs properly and keep the tomato sauce thick rather than watery.",
-      "Lemon yoghurt sauce: 120g plain Greek yoghurt + 1 tbsp lemon juice + pinch of salt for 3 portions (included in indicative nutrition)."
-    ],
     "nutrition": {
       "kcal": 430,
       "protein": 34.9,
       "carbs": 11.9,
       "fat": 24.1,
       "fibre": 5.9
-    }
+    },
+    "protein": "Lamb",
+    "region": "North Africa"
   },
   {
     "id": "R18",
@@ -391,8 +365,6 @@ const RECIPE_DATA = [
     "type": "Main",
     "baseServings": 3,
     "minutes": 30,
-    "source": "recipes_and_cooking_schedule_week_15_nov_2026.md",
-    "note": "Toast spices and brown turkey for fuller flavour.",
     "emoji": "🍛",
     "extras": [
       "yoghurt",
@@ -425,18 +397,15 @@ const RECIPE_DATA = [
       "Add chopped tomatoes and a splash of water if necessary. Simmer 10–12 minutes, stirring occasionally, until thick and the turkey is cooked through (75°C in the centre).",
       "Stir in spinach to wilt, then finish with lemon juice. Season generously and serve with a spoonful of Greek yoghurt and coriander if using."
     ],
-    "notes": [
-      "Flavour tip: The most important steps are browning the turkey and frying the spices before adding tomatoes. If it tastes flat, first try a pinch of salt and more lemon rather than extra oil.",
-      "Keto option: Serve on its own, over cauliflower rice or with extra spinach. No rice is needed. The tomatoes, pepper and onion provide modest carbohydrates, so portion accordingly.",
-      "Leftovers: Refrigerate the Tuesday portion promptly. Freeze Friday's portion on Monday, then defrost it in the fridge on Thursday and reheat until piping hot on Friday."
-    ],
     "nutrition": {
       "kcal": 459,
-      "protein": 50.0,
+      "protein": 50,
       "carbs": 19.4,
       "fat": 19.3,
       "fibre": 5.5
-    }
+    },
+    "protein": "Turkey",
+    "region": "South Asia"
   },
   {
     "id": "R19",
@@ -446,8 +415,6 @@ const RECIPE_DATA = [
     "type": "Main",
     "baseServings": 3,
     "minutes": 25,
-    "source": "recipes_and_cooking_schedule_week_15_nov_2026.md",
-    "note": "Good, but shaking beef rated higher.",
     "emoji": "🥢",
     "extras": [
       "sesame",
@@ -475,18 +442,15 @@ const RECIPE_DATA = [
       "Return beef and any juices to the pan. Toss for 30–60 seconds until coated and hot. Taste before adding salt, as soy sauce is already salty.",
       "Finish with spring onions and optional sesame seeds."
     ],
-    "notes": [
-      "Flavour tip: Brown the mushrooms properly before adding greens. Adding everything at once steams the beef and makes the sauce watery.",
-      "Keto option: Serve as a bowl with vegetables, without rice or noodles. Tom can have avocado on the side if he wants more fat.",
-      "Leftovers: Refrigerate Thursday's portion promptly. Reheat gently but thoroughly; thin beef strips become tough if overcooked. Alternatively eat cold with extra salad leaves."
-    ],
     "nutrition": {
       "kcal": 403,
       "protein": 42.7,
-      "carbs": 6.0,
-      "fat": 22.0,
+      "carbs": 6,
+      "fat": 22,
       "fibre": 2.3
-    }
+    },
+    "protein": "Beef",
+    "region": "East & Southeast Asia"
   },
   {
     "id": "R20",
@@ -496,8 +460,6 @@ const RECIPE_DATA = [
     "type": "Main",
     "baseServings": 2,
     "minutes": 25,
-    "source": "thursday_friday_recipes_no_fish_sauce.md",
-    "note": "Original miso-soy glaze was too strong; fish texture was fine. Use less miso and soy, brush lightly or serve separately.",
     "emoji": "🐟",
     "extras": [
       "butter",
@@ -525,17 +487,15 @@ const RECIPE_DATA = [
       "Roast for another 10–12 minutes, adjusting for the thickness of the cod, until the fish is opaque and flakes easily and is cooked through.",
       "Scatter with spring onions and optional sesame seeds. Spoon the tray juices over the cod."
     ],
-    "notes": [
-      "Recommended adjustment: try only 1 tsp white miso, 1 tsp soy, 1 tsp grated ginger, 1 tsp rice vinegar, 1 tbsp water and ½ tsp sesame oil for two cod fillets. Use a thin coating rather than all of the glaze.",
-      "Flavour tip: Taste before adding salt: miso and soy sauce are already salty. A final squeeze of lime adds brightness."
-    ],
     "nutrition": {
       "kcal": 246,
       "protein": 37.1,
       "carbs": 5.8,
       "fat": 7.4,
-      "fibre": 3.0
-    }
+      "fibre": 3
+    },
+    "protein": "Fish",
+    "region": "East & Southeast Asia"
   },
   {
     "id": "R21",
@@ -545,8 +505,6 @@ const RECIPE_DATA = [
     "type": "Main",
     "baseServings": 2,
     "minutes": 25,
-    "source": "thursday_friday_recipes_no_fish_sauce.md",
-    "note": "Your successful version uses soy sauce INSTEAD of fish sauce.",
     "emoji": "🥩",
     "extras": [
       "avocado",
@@ -574,16 +532,15 @@ const RECIPE_DATA = [
       "Finish: Cook any marinade remaining in the pan until bubbling and reduced to a glaze. Do not use uncooked marinade as a finishing sauce. Spoon the beef over the salad.",
       "Serve: Combine remaining lime juice with freshly ground black pepper and a small pinch of salt for a simple dipping sauce."
     ],
-    "notes": [
-      "Flavour tip: A very hot pan and enough space around the beef make the difference between caramelised edges and steamed meat. Avoid overcrowding."
-    ],
     "nutrition": {
       "kcal": 439,
       "protein": 45.1,
       "carbs": 11.2,
       "fat": 22.3,
       "fibre": 2.4
-    }
+    },
+    "protein": "Beef",
+    "region": "East & Southeast Asia"
   },
   {
     "id": "R22",
@@ -593,8 +550,6 @@ const RECIPE_DATA = [
     "type": "Soup",
     "baseServings": 4,
     "minutes": 35,
-    "source": "meal_plan_and_recipes_week_22_nov_2026.md",
-    "note": "Planned; no rating yet.",
     "emoji": "🍲",
     "extras": [
       "avocado",
@@ -625,16 +580,15 @@ const RECIPE_DATA = [
       "Lift out chicken and shred with two forks. Add diced courgette to the soup and simmer 5–7 minutes until tender.",
       "Return chicken, add spinach to wilt, then finish with plenty of lime juice and coriander. Taste: if flat, add salt and lime before adding more oil."
     ],
-    "notes": [
-      "To serve: Tom can add avocado or full-fat Greek yoghurt; keep yours brothier and lighter. No rice, beans or tortillas required."
-    ],
     "nutrition": {
       "kcal": 319,
       "protein": 30.2,
       "carbs": 15.5,
       "fat": 14.5,
       "fibre": 4.6
-    }
+    },
+    "protein": "Chicken",
+    "region": "North America"
   },
   {
     "id": "R23",
@@ -644,8 +598,6 @@ const RECIPE_DATA = [
     "type": "Main",
     "baseServings": 2,
     "minutes": 30,
-    "source": "meal_plan_and_recipes_week_22_nov_2026.md",
-    "note": "Planned; feta can be portioned separately for Tom.",
     "emoji": "🐟",
     "extras": [
       "feta",
@@ -670,16 +622,15 @@ const RECIPE_DATA = [
       "Bake for 10–14 minutes more, depending on fillet thickness, until the cod is cooked through and flakes easily.",
       "Crumble feta over the hot vegetables and fish, return to the oven for 2 minutes to soften, then finish with parsley and extra lemon juice."
     ],
-    "notes": [
-      "Different fat preferences: Put around 30–40g feta on Nicole's serving and 60–100g on Tom's. Tom can add extra olive oil if desired."
-    ],
     "nutrition": {
       "kcal": 439,
       "protein": 41.9,
       "carbs": 15.4,
       "fat": 22.1,
       "fibre": 4.3
-    }
+    },
+    "protein": "Fish",
+    "region": "Mediterranean & Southern Europe"
   },
   {
     "id": "D01",
@@ -689,8 +640,6 @@ const RECIPE_DATA = [
     "type": "Dessert",
     "baseServings": 8,
     "minutes": 85,
-    "source": "meal_plan_and_recipes_week_22_nov_2026.md",
-    "note": "Unrated Thanksgiving pie; full 23cm tin makes about eight slices.",
     "emoji": "🥧",
     "extras": [],
     "ingredients": [
@@ -712,9 +661,6 @@ const RECIPE_DATA = [
       "Line a 23cm pie tin with one pastry sheet, add the filling and make a lattice with the second. Brush exposed pastry with egg.",
       "Bake on a preheated baking tray at 190°C fan for about 50–65 minutes, shielding the edges with foil if browning too quickly, until the filling is actively bubbling and pastry is golden. Cool for at least 3 hours for clean slices."
     ],
-    "notes": [
-      "23cm pie with lattice. Handle hot caramel carefully. Chill leftovers promptly; contains cream."
-    ],
     "fixedYield": true,
     "nutrition": {
       "kcal": 635,
@@ -722,7 +668,9 @@ const RECIPE_DATA = [
       "carbs": 76.1,
       "fat": 32.2,
       "fibre": 5.5
-    }
+    },
+    "protein": "No main protein",
+    "region": "North America"
   },
   {
     "id": "D02",
@@ -732,8 +680,6 @@ const RECIPE_DATA = [
     "type": "Dessert",
     "baseServings": 8,
     "minutes": 85,
-    "source": "meal_plan_and_recipes_week_22_nov_2026.md",
-    "note": "Unrated Thanksgiving pie; full 23cm tin makes about eight slices.",
     "emoji": "🥧",
     "extras": [],
     "ingredients": [
@@ -756,9 +702,6 @@ const RECIPE_DATA = [
       "Rub flour, cold butter and brown sugar together until crumbly; add pecans if using. Scatter over the fruit.",
       "Bake on a preheated baking tray at 190°C fan for about 50–65 minutes, until bubbling and golden. Cover loosely with foil if the crumble colours too fast. Cool at least 3 hours."
     ],
-    "notes": [
-      "23cm pie with a crumble topping. Optional pecans are not counted in nutrition."
-    ],
     "fixedYield": true,
     "nutrition": {
       "kcal": 464,
@@ -766,6 +709,8 @@ const RECIPE_DATA = [
       "carbs": 72.2,
       "fat": 17.2,
       "fibre": 5.1
-    }
+    },
+    "protein": "No main protein",
+    "region": "North America"
   }
 ];

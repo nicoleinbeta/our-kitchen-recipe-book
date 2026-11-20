@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#183b35">
-  <meta name="description" content="A private, offline recipe book for two: favourites, servings, nutrition and accompaniments.">
+  <meta name="description" content="A recipe book with protein and cuisine filters, serving sizes, nutrition and accompaniments.">
   <title>Our Kitchen | Recipe Book</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -23,7 +23,7 @@
         <div class="eyebrow"><span class="eyebrow-dot"></span> THE RECIPE BOOK</div>
         <h1>Food worth <em>making again.</em></h1>
         <p>Our tried-and-tested favourites, the dishes worth improving and a few new ideas. Designed for real weeknights and different appetites.</p>
-        <div class="hero-meta"><span id="recipeCount">Loading recipes</span><span class="bullet">·</span><span id="fiveStarCount"></span><span class="bullet">·</span><span>Offline & private</span></div>
+        <div class="hero-meta"><span id="recipeCount">Loading recipes</span><span class="bullet">·</span><span id="fiveStarCount"></span><span class="bullet">·</span><span>Simple & shareable</span></div>
       </div>
       <div class="hero-art" aria-hidden="true"><span class="hero-art-big">✺</span><span class="hero-art-small">✺</span><div class="hero-art-label">GOOD FOOD<br>GOOD COMPANY</div></div>
     </section>
@@ -32,6 +32,8 @@
       <div class="section-heading"><div><div class="eyebrow dark">BROWSE & COOK</div><h2>Find something good.</h2></div><span class="subtle" id="resultCount"></span></div>
       <div class="toolbar">
         <label class="search-wrap" for="searchInput"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.9" cy="10.9" r="6.7"/><path d="m16 16 5 5"/></svg><input id="searchInput" type="search" placeholder="Search dishes, cuisines or ingredients…" autocomplete="off"></label>
+        <select id="proteinFilter" aria-label="Main protein"><option value="all">All proteins</option></select>
+        <select id="regionFilter" aria-label="Cuisine region"><option value="all">All cuisine regions</option></select>
         <select id="typeFilter" aria-label="Meal type"><option value="all">All meal types</option><option value="Main">Main dishes</option><option value="Soup">Soups</option><option value="Breakfast">Breakfast</option><option value="Dessert">Desserts</option></select>
         <select id="sortFilter" aria-label="Sort recipes"><option value="rating">Top rated</option><option value="az">A to Z</option><option value="quick">Quickest first</option></select>
       </div>

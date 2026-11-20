@@ -25,6 +25,12 @@ To enable GitHub Pages from an authenticated browser:
 
 Changes to the committed recipe source on `main` will publish automatically after Pages has been enabled. Rating overrides remain local to each device/browser, not in GitHub.
 
+## Search and filtering
+
+Use the **Main protein** and **Cuisine region** dropdowns to filter recipes. The dropdowns can be combined with meal type, favourites and keyword search. Keyword search also matches specific cuisine names and ingredients. Use **Reset filters** to return to the full collection.
+
+Recipe cards and detail pages intentionally omit conversational feedback, revision notes and source filenames. Ratings and practical ingredient/accompaniment guidance remain.
+
 ## What is included
 
 - 18 developed main dishes rated above 2 (or not yet rated), plus two Thanksgiving apple pies.
