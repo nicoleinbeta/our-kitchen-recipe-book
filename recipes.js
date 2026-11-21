@@ -642,6 +642,79 @@ const RECIPE_DATA = [
     "region": "Mediterranean & Southern Europe"
   },
   {
+    "id": "R24",
+    "title": "Three-Meat Smoky Chipotle Chilli",
+    "rating": 4,
+    "cuisine": "Tex-Mex",
+    "type": "Main",
+    "baseServings": 4,
+    "minutes": 55,
+    "emoji": "🌶️",
+    "protein": "Beef",
+    "proteins": [
+      "Beef",
+      "Pork"
+    ],
+    "region": "North America",
+    "tags": [
+      "chilli",
+      "kidney beans",
+      "bacon",
+      "smoked lardons",
+      "pork"
+    ],
+    "extras": [
+      "cheddar",
+      "sourcream"
+    ],
+    "ingredients": [
+      "350 g lean beef mince (ideally 5% fat)",
+      "200 g rump or sirloin steak, cut into 1.5–2 cm cubes",
+      "75–100 g smoked bacon lardons",
+      "1 large onion, finely diced",
+      "200 g mushrooms, finely chopped",
+      "3 garlic cloves, minced",
+      "1 × 400 g tin red kidney beans, drained and rinsed",
+      "1 × 400 g tin chopped tomatoes",
+      "2 tbsp tomato purée",
+      "100–150 ml beef stock (start with 100 ml)",
+      "Optional: Up to 1 tbsp olive oil, only if needed",
+      "1–2 tsp chipotle paste, to taste",
+      "10 g dark chocolate (70% cocoa or higher)",
+      "Juice of ½ lime, or 1 tsp red wine vinegar",
+      "Salt and freshly ground black pepper",
+      "2 tsp ground cumin",
+      "2 tsp smoked paprika",
+      "1 tsp dried oregano",
+      "½ tsp ground coriander",
+      "¼ tsp ground cinnamon",
+      "Optional to serve: About 100 g mature cheddar, grated (roughly 25 g per person)",
+      "Optional to serve: About 120 g sour cream (roughly 30 g per person)",
+      "Optional to serve: Fresh coriander, chopped",
+      "Optional to serve: Lime wedges",
+      "Optional to serve: Jalapeños, optional"
+    ],
+    "steps": [
+      "Prepare everything (10–15 minutes). Dice the onion, finely chop the mushrooms and garlic, and cut the steak into 1.5–2 cm cubes. Drain and rinse the kidney beans. Mix the dried spices together in a small bowl.",
+      "Render the lardons (4–5 minutes). Heat a large, heavy-based frying pan or casserole over medium-high heat. Add the lardons and cook until golden and some fat has rendered. Lift out with a slotted spoon, leaving about 1 tablespoon of fat in the pan. If there is more, pour off the excess.",
+      "Sear the steak (1–2 minutes). Raise the heat. Pat the steak cubes dry, season lightly with pepper, and sear quickly in the hot pan until browned on the outside. Work in two batches if necessary so they brown rather than steam. Transfer to a plate; they will finish cooking later. Do not simmer them with the mince from the start.",
+      "Brown the mince (5–6 minutes). Add the beef mince to the same pan. Spread it out and leave it undisturbed for a minute or two to develop a crust, then break it up and cook until browned throughout. Transfer it to the plate with the lardons. Add a little olive oil only if the pan is dry.",
+      "Cook the vegetables (6–8 minutes). Add the onion and mushrooms to the pan. Cook over medium-high heat until the onion softens and the mushrooms have lost their moisture and begun to brown. Add the garlic for the final minute.",
+      "Toast the flavourings (1–2 minutes). Stir in the tomato purée, chipotle paste, cumin, smoked paprika, oregano, ground coriander and cinnamon. Cook, stirring, until fragrant and the tomato purée darkens slightly. Start with 1 tsp chipotle and increase later if needed.",
+      "Build the chilli (15 minutes). Return the browned mince and lardons to the pan. Add the chopped tomatoes and 100 ml beef stock, scraping up the browned bits. Bring to a gentle simmer, then cook partially covered for about 15 minutes. Stir occasionally. Add a little more stock only if it gets too thick.",
+      "Add the beans (5 minutes). Stir in the drained kidney beans and simmer uncovered for 5 minutes so they heat through and the sauce reduces. The chilli should be thick enough to eat from a bowl without rice.",
+      "Finish the steak (5–8 minutes). Stir the steak cubes and any accumulated juices into the chilli. Simmer gently until the steak is cooked to your liking and heated through. Avoid a hard boil or prolonged simmer, which can toughen this quick-cooking cut. For food safety, ensure the mince is fully cooked and the steak is cooked to a temperature appropriate for the diners.",
+      "Balance and serve (2 minutes). Turn the heat low and stir in the dark chocolate until melted. Add lime juice (or red wine vinegar). Taste and adjust salt, pepper and chipotle. Remember the lardons, stock and cheddar already add salt. Serve in warm bowls with grated mature cheddar, sour cream, coriander and extra lime wedges. Add jalapeños if you want more heat."
+    ],
+    "nutrition": {
+      "kcal": 415,
+      "protein": 41.8,
+      "carbs": 20.4,
+      "fat": 15.2,
+      "fibre": 8.9
+    }
+  },
+  {
     "id": "D01",
     "title": "Bourbon caramel apple pie",
     "rating": null,

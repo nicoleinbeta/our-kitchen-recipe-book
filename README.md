@@ -42,6 +42,10 @@ The **Smart recipe matches** panel uses simple ingredient overlap, ratings and p
 
 **Limitations:** Only 11 savoury recipes currently have complete ingredient amounts. The seven older summary-only favourites are not automatically plannable. Ingredient matching and quantity scaling are heuristics, not a verified shopping database. Ranges and unquantified items are shown as approximations; optional accompaniments are not automatically included; standard supermarket pack sizes and Ocado baskets are not yet integrated. Planning and tick-boxes are saved in the current browser's localStorage, so they do **not sync between Tom's phone and yours**. The app has no backend or API key.
 
+## Newly tested recipe
+
+- **Three-Meat Smoky Chipotle Chilli** (R24): rated 4/5, four servings, 55 minutes. Uses beef mince, rump/sirloin and smoked bacon lardons, with kidney beans, mushrooms, chipotle and dark chocolate. Available in both Beef and Pork filters, and in the meal planner. Cheddar and sour cream are optional, separately calculated toppings. The estimated 415 kcal per serving is for the base chilli only, and varies with cuts, lardons, oil and brands.
+
 ## What is included
 
 - 18 developed main dishes rated above 2 (or not yet rated), plus two Thanksgiving apple pies.

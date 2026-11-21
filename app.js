@@ -13,7 +13,9 @@
     butter:{ label:'Butter (10g)', n:{kcal:72,protein:0.1,carbs:0,fat:8.1,fibre:0} },
     yoghurt:{ label:'Greek yoghurt, 2% (60g)', n:{kcal:44,protein:5.4,carbs:2.2,fat:1.2,fibre:0} },
     vegetables:{ label:'Extra greens (150g)', n:{kcal:35,protein:3.2,carbs:4.5,fat:0.5,fibre:3.5} },
-    sesame:{ label:'Sesame seeds (15g)', n:{kcal:86,protein:2.6,carbs:1.8,fat:7.5,fibre:1.8} }
+    sesame:{ label:'Sesame seeds (15g)', n:{kcal:86,protein:2.6,carbs:1.8,fat:7.5,fibre:1.8} },
+    cheddar:{ label:'Mature cheddar (25g)', n:{kcal:104,protein:6.3,carbs:0.4,fat:8.6,fibre:0} },
+    sourcream:{ label:'Sour cream (30g)', n:{kcal:58,protein:0.7,carbs:0.9,fat:5.7,fibre:0} }
   };
   function esc(s) { return String(s ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch])); }
   function ratingFor(r) { return Object.prototype.hasOwnProperty.call(storedRatings,r.id) ? storedRatings[r.id] : r.rating; }
@@ -25,9 +27,9 @@
     let arr=allValid().filter(r => {
       if(state.tab!=='all' && groupFor(r)!==state.tab) return false;
       if(state.type!=='all' && r.type!==state.type) return false;
-      if(state.protein!=='all' && r.protein!==state.protein) return false;
+      if(state.protein!=='all' && r.protein!==state.protein && !(r.proteins||[]).includes(state.protein)) return false;
       if(state.region!=='all' && r.region!==state.region) return false;
-      const haystack=[r.title,r.cuisine,r.region,r.protein,r.type,r.outline||'',...r.ingredients].join(' ').toLowerCase();
+      const haystack=[r.title,r.cuisine,r.region,r.protein,...(r.proteins||[]),...(r.tags||[]),r.type,r.outline||'',...r.ingredients].join(' ').toLowerCase();
       return !state.query || haystack.includes(state.query);
     });
     arr.sort((a,b) => state.sort==='az'?a.title.localeCompare(b.title):state.sort==='quick'?a.minutes-b.minutes:(ratingFor(b)??-1)-(ratingFor(a)??-1)||a.title.localeCompare(b.title));
@@ -38,7 +40,7 @@
     const detailed=!!r.steps.length;
     return `<button class="recipe-card" data-id="${esc(r.id)}" aria-label="Open ${esc(r.title)}">
       <div class="card-top"><span class="dish-art ${esc(r.type)}">${esc(r.emoji)}</span><span class="rating ${ratingFor(r)==null?'unrated':''}">${esc(ratingText(r))}</span></div>
-      <div class="card-body"><div class="card-meta">${esc(r.cuisine)} · ${esc(r.type)}${r.type!=="Dessert"?" · "+esc(r.protein):""}</div><h3>${esc(r.title)}</h3></div>
+      <div class="card-body"><div class="card-meta">${esc(r.cuisine)} · ${esc(r.type)}${r.type!=="Dessert"?" · "+esc((r.proteins&&r.proteins.length>1)?r.proteins.join(" + "):r.protein):""}</div><h3>${esc(r.title)}</h3></div>
       <div class="card-bottom"><span class="card-time">◷ ${r.minutes} min <span class="card-full"> · ${detailed?'Full recipe':'Summary only'}</span></span><span class="card-cta">View recipe →</span></div>
     </button>`;
   }
@@ -107,7 +109,7 @@
       `<div class="info-box"><strong>Full recipe needs recovering</strong>The precise method and quantities have not yet been added for this recipe.</div>`;
     const ratingOptions=['','1','1.5','2','2.5','3','3.5','4','4.5','5'].map(s=>`<option value="${s}" ${(ratingFor(r)??'').toString()===s?'selected':''}>${s?s+'/5':'Unrated'}</option>`).join('');
     $('detailContent').innerHTML=`
-      <header class="detail-header"><div class="eyebrow dark">${esc(r.cuisine)} · ${esc(r.type)}${r.type!=="Dessert"?" · "+esc(r.protein):""}</div><h2 id="detailTitle">${esc(r.emoji)} ${esc(r.title)}</h2><div class="detail-byline"><span class="rating ${ratingFor(r)==null?'unrated':''}">${esc(ratingText(r))}</span><span>◷ ${r.minutes} minutes</span><span>· ${full?'Complete recipe':'Overview only'}</span></div>
+      <header class="detail-header"><div class="eyebrow dark">${esc(r.cuisine)} · ${esc(r.type)}${r.type!=="Dessert"?" · "+esc((r.proteins&&r.proteins.length>1)?r.proteins.join(" + "):r.protein):""}</div><h2 id="detailTitle">${esc(r.emoji)} ${esc(r.title)}</h2><div class="detail-byline"><span class="rating ${ratingFor(r)==null?'unrated':''}">${esc(ratingText(r))}</span><span>◷ ${r.minutes} minutes</span><span>· ${full?'Complete recipe':'Overview only'}</span></div>
       <div class="rating-update"><label for="ratingEdit">Joint rating:</label><select id="ratingEdit" aria-label="Edit joint rating">${ratingOptions}</select><span class="mini-note">1 or 2 stars hides this dish from the book.</span></div>
       <div class="detail-actions">${full && r.type!=="Dessert"?'<button class="button dark" id="addPlanBtn">Add to meal plan</button>':''}<button class="button" id="printBtn">Print recipe</button><button class="button" id="copyBtn">Copy recipe</button></div></header>
       <section class="detail-section"><div class="section-minihead"><h3>Ingredients</h3>${fixed?'<span class="fixed-label">One 23cm pie · 8 slices</span>':(full?`<div class="serve-control" aria-label="Serving size">${[2,4,6].map(n=>`<button type="button" class="${state.servings===n?'active':''}" data-serving="${n}" aria-pressed="${state.servings===n}">${n}</button>`).join('')}</div>`:'<span class="fixed-label">Amounts to verify</span>')}</div>
